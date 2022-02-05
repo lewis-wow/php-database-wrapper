@@ -4,7 +4,7 @@
 ```
 // PDO database connection object, table name, anonymous class that extends DatabaseTableUtils
 
-return DatabaseTable::connect($db, "users", new class extends DatabaseTableUtils {
+return $db->connectTable("users", new class extends DatabaseTableUtils {
     public function login($email, $password) {
         return $this->select("email, name, surname, id", "email=? AND password=?", $email, $password);
     }
